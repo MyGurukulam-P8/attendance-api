@@ -1,3 +1,4 @@
+
 from unittest.mock import Mock, patch
 import pytest
 import psycopg2
@@ -21,6 +22,7 @@ def mock_config_file(tmp_path):
     config_file.write_text(config_data)
     return str(config_file)
 
+@pytest.fixture
 def test_core_postgres_client_read_employee_attendance(mock_config_file, mocker):
     mock_psycopg2 = mocker.patch("client.postgres.DatabaseSDKFacade")
     mock_cursor = Mock()
@@ -54,8 +56,8 @@ def test_core_postgres_client_read_employee_attendance(mock_config_file, mocker)
     #     port=5432,
     # )
 
-
-def test_core_postgres_client_read_all_employee_attendance(mock_config_file, mocker):
+@pytest.fixture
+def test_core_postgres_client_read_all_employee_attendance(mock_config_file):
     mock_psycopg2 = mocker.patch("client.postgres.DatabaseSDKFacade")
     mock_cursor = Mock()
     mock_fetchall_result = [
@@ -105,6 +107,7 @@ def test_core_postgres_client_read_all_employee_attendance(mock_config_file, moc
         ),
     ]
 
+@pytest.fixture
 def test_core_postgres_client_create_employee_attendance(mock_config_file, mocker):
     mock_psycopg2 = mocker.patch("client.postgres.DatabaseSDKFacade")
     mock_cursor = Mock()
@@ -118,6 +121,7 @@ def test_core_postgres_client_create_employee_attendance(mock_config_file, mocke
         message="Successfully created the record for the employee id: $1"
     )
 
+@pytest.fixture
 def test_core_postgres_client_attendance_detail_health(mock_config_file, mocker):
     mock_psycopg2 = mocker.patch("client.postgres.DatabaseSDKFacade")
     mock_cursor = Mock()
@@ -148,6 +152,7 @@ def test_core_postgres_client_attendance_detail_health(mock_config_file, mocker)
     )
     assert status_code == 200
 
+@pytest.fixture
 def test_core_postgres_client_attendance_health(mock_config_file, mocker):
     mock_psycopg2 = mocker.patch("client.postgres.DatabaseSDKFacade")
     mock_cursor = Mock()
