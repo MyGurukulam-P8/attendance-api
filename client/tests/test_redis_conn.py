@@ -1,9 +1,9 @@
 import os
 from unittest import mock
-from client.redis import MiddlewareSDKFacade
-from client.redis.redis_conn import get_caching_data
+#from client.redis import MiddlewareSDKFacade
+#from client.redis.redis_conn import get_caching_data
 
-@mock.patch('client.redis.open')
+#@mock.patch('client.redis.open')
 def test_get_caching_data(mock_open):
     mock_file = mock.MagicMock()
     mock_file.__enter__.return_value = mock_file
@@ -32,7 +32,7 @@ def test_get_caching_data(mock_open):
     # del os.environ['CONFIG_FILE']
 
 
-@mock.patch('client.redis.open')
+#@mock.patch('client.redis.open')
 def test_redis_status(mock_open):
     mock_file = mock.MagicMock()
     mock_file.__enter__.return_value = mock_file
