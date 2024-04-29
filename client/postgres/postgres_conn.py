@@ -5,7 +5,7 @@ Module for postgres related methods and class
 import os
 from collections import OrderedDict
 from typing import List
-import yaml
+#import yaml
 import psycopg2
 from models.message import CustomMessage, HealthMessage
 from models.user_info import EmployeeInfo
