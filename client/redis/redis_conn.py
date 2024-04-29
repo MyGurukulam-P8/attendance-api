@@ -4,7 +4,7 @@ Module for Redis data and interface
 # pylint: disable=too-few-public-methods,no-member
 import os
 import redis
-import yaml
+#import yaml
 
 CONFIG_FILE = os.getenv('CONFIG_FILE', 'config.yaml')
 
