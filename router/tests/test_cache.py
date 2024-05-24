@@ -1,6 +1,6 @@
 from flask import Flask
 from flask_caching import Cache
-import pytest
+#import pytest
 
 cache = Cache()
 
